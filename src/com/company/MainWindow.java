@@ -1,0 +1,12 @@
+package com.company;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class MainWindow extends JFrame {
+    public MainWindow() {
+        this.setSize(720,640);
+        DrawPanel drawPanel = new DrawPanel();
+        this.add(drawPanel);
+    }
+}
