@@ -5,6 +5,7 @@ package com.company.math;
  */
 public class Vector4 {
     private float[] values;
+    private static final int SIZE = 4;
 
 
     public Vector4(float x, float y, float z, float w) {
@@ -23,6 +24,9 @@ public class Vector4 {
         this(vector3.getX(), vector3.getY(), vector3.getZ(), 0);
     }
 
+    private Vector4(float[] arr) {
+        this.values = arr;
+    }
 
     public float getX() {
         return values[0];
@@ -52,5 +56,25 @@ public class Vector4 {
             return  new Vector4(getX(), getY(), getZ(), 0);
         }
         return  new Vector4(getX()/getW(), getY()/getW(), getZ()/getW(), 1f);
+    }
+
+    public Vector4 mul(float number) {
+        float[] result = new float[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            result[i] = this.at(i) *number;
+        }
+        return new Vector4(result);
+    }
+
+    public Vector4 mul(Vector4 vector4) {
+        float[] result = new float[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            result[i] = this.at(i) * vector4.at(i);
+        }
+        return new Vector4(result);
+    }
+
+    public static Vector4 zero(){
+        return new Vector4(0, 0, 0, 0);
     }
 }
