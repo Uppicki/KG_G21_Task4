@@ -3,23 +3,25 @@ package com.company.math;
  * Класс Vector представляет собой точку в реальном мире
  */
 public class Vector3 {
-    private float x, y, z;
+    private float[] values;
 
 
     public Vector3(float x, float y, float z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.values = new float[]{x, y, z};
     }
 
 
     public float getX() {
-        return x;
+        return values[0];
     }
     public float getY() {
-        return y;
+        return values[1];
     }
     public float getZ() {
-        return z;
+        return values[2];
+    }
+
+    public float at(int index) {
+        return values[index];
     }
 }
